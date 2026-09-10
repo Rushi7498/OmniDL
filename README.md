@@ -396,6 +396,21 @@ Download only media you own or have permission to download. Respect creators' ri
 
 [React](https://react.dev/) · [Vite](https://vite.dev/) · [Express](https://expressjs.com/) · [FFmpeg](https://ffmpeg.org/) · [yt-dlp](https://github.com/yt-dlp/yt-dlp) · [gallery-dl](https://github.com/mikf/gallery-dl)
 
+## Deploy the backend on Render
+
+The root `Dockerfile` installs Node.js, Python, FFmpeg, and pinned extractor versions. It runs the API as a non-root user, listens on `0.0.0.0`, and respects Render's `PORT`. No database or persistent disk is required.
+
+1. In [Render](https://dashboard.render.com/), choose **New → Web Service** and connect `DzarelDeveloper/OmniDL`.
+2. Choose branch `main`, language **Docker**, and instance type **Free**. Leave **Root Directory** empty and use `./Dockerfile` as the Dockerfile path. Leave the Docker Command override empty.
+3. Add `FRONTEND_ORIGINS=https://your-site.netlify.app` in **Environment**, replacing the example with your exact frontend origin (no trailing slash).
+4. Set the health check path to `/api/v1/health`, then deploy.
+5. Open `https://your-service.onrender.com/api/v1/health`. A running API returns `{"status":"ok"}`. This checks liveness, not platform extraction.
+6. Configure Netlify as described below, then test analysis and a small download from the deployed frontend.
+
+The container defaults to one processing job and a 50 MiB media limit to reduce memory pressure on small instances. Override `MAX_CONCURRENT_JOBS` and `MAX_MEDIA_MB` only when your hosting resources allow it. Update `backend/requirements.txt` and run the Python regression tests when upgrading extractors.
+
+[Render Free](https://render.com/docs/free) sleeps after 15 idle minutes and can take about a minute to wake. Bandwidth and outbound traffic limits apply, making this suitable for light testing rather than a busy public downloader. Restarting clears analysis sessions; analyze the link again if a download handle expires. Social platforms may also restrict datacenter IPs, so successful local extraction does not guarantee hosted extraction.
+
 ## Deploy the frontend on Netlify
 
 Connect `DzarelDeveloper/OmniDL` to Netlify. The included `netlify.toml` uses the repository root, `npm run build`, and `frontend/dist`.
