@@ -1,0 +1,20 @@
+{
+  "name": "omnidl",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "start": "npm start -w backend",
+    "test": "node --test backend/test/*.test.js",
+    "format": "prettier --write frontend/src backend/src backend/test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "prettier": "^3.9.6"
+  }
+}

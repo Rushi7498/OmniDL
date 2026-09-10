@@ -1,0 +1,15 @@
+node_modules/
+frontend/dist/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.venv/
+
+__pycache__/
+*.pyc
+
+.agents/
+.codex/
+.netlify/

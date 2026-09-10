@@ -1,0 +1,1 @@
+{"name":"@omnidl/backend","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"node --watch --env-file-if-exists=../.env src/server.js","start":"node --env-file-if-exists=../.env src/server.js"},"dependencies":{"express":"^5.1.0","express-rate-limit":"^8.0.1","helmet":"^8.1.0","archiver":"^7.0.1","ipaddr.js":"^2.2.0"}}
