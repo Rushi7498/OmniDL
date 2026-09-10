@@ -11,15 +11,22 @@
 One link for your videos, audio, and images.<br />
 Automatic platform detection. Original-resolution images. Simple downloads.
 
-**TikTok · Instagram · YouTube · Pinterest · Facebook · X / Twitter**
+<p align="center">
+  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/tiktok.svg" alt="TikTok" height="32" /></a>
+  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/instagram.svg" alt="Instagram" height="32" /></a>
+  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/youtube.svg" alt="YouTube" height="32" /></a>
+  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/pinterest.svg" alt="Pinterest" height="32" /></a>
+  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/facebook.svg" alt="Facebook" height="32" /></a>
+  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/twitter.svg" alt="X / Twitter" height="32" /></a>
+</p>
 
-<a href="#quick-start"><strong>Get started →</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="#features">Features</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="#architecture">Architecture</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="#api-reference">API reference</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="#deploy-the-frontend-on-netlify">Deploy</a>
-
-<br />
+<p align="center">
+  <a href="#quick-start"><img src="docs/images/badges/get-started.svg" alt="Get started →" height="42" /></a>
+  <a href="#features"><img src="docs/images/badges/features.svg" alt="Features" height="42" /></a>
+  <a href="#architecture"><img src="docs/images/badges/architecture.svg" alt="Architecture" height="42" /></a>
+  <a href="#api-reference"><img src="docs/images/badges/api.svg" alt="API reference" height="42" /></a>
+  <a href="#deploy-the-frontend-on-netlify"><img src="docs/images/badges/deploy.svg" alt="Deploy" height="42" /></a>
+</p>
 
 <sub>Built with React, Vite, Express, and FFmpeg · Created by <a href="https://github.com/DzarelDeveloper">Dzarel Alghifari</a></sub>
 

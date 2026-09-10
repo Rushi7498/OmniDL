@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="103" height="32" viewBox="0 0 103 32" role="img" aria-label="YouTube">
+  <title>YouTube</title>
+  <rect width="103" height="32" rx="8" fill="#B92727"/>
+  <rect x="0.5" y="0.5" width="102" height="31" rx="7.5" fill="none" stroke="#FFFFFF" stroke-opacity=".13"/>
+  <text x="51.5" y="21.0" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600">YouTube</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="111" height="32" viewBox="0 0 111 32" role="img" aria-label="Facebook">
+  <title>Facebook</title>
+  <rect width="111" height="32" rx="8" fill="#215EAF"/>
+  <rect x="0.5" y="0.5" width="110" height="31" rx="7.5" fill="none" stroke="#FFFFFF" stroke-opacity=".13"/>
+  <text x="55.5" y="21.0" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600">Facebook</text>
+</svg>
