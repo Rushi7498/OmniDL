@@ -1,29 +1,35 @@
+<p align="center">
+  <img src="docs/images/omnidl-banner.jpg" alt="OmniDL — a clean interface for downloading videos, audio, and images from one link" width="100%" />
+</p>
+
 <div align="center">
 
 # OmniDL
 
-### Paste. Detect. Download.
+**Paste. Detect. Download.**
 
-Download media from one link.<br />
-A focused, self-hosted downloader for TikTok, Instagram, YouTube, Pinterest, Facebook, and X/Twitter.
+One link for your videos, audio, and images.<br />
+Automatic platform detection. Original-resolution images. Simple downloads.
 
-**React + Vite · Node.js + Express · FFmpeg**
+**TikTok · Instagram · YouTube · Pinterest · Facebook · X / Twitter**
 
-[Quick start](#quick-start) · [Features](#features) · [API](#api-reference) · [Architecture](#architecture) · [Troubleshooting](#troubleshooting)
+<a href="#quick-start"><strong>Get started →</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="#features">Features</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="#architecture">Architecture</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="#api-reference">API reference</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="#deploy-the-frontend-on-netlify">Deploy</a>
+
+<br />
+
+<sub>Built with React, Vite, Express, and FFmpeg · Created by <a href="https://github.com/DzarelDeveloper">Dzarel Alghifari</a></sub>
 
 </div>
 
-![OmniDL web interface](docs/images/omnidl-banner.jpg)
-
 ---
 
-OmniDL turns a media URL into a preview and a set of download options. Paste a link, let the backend detect the platform and media type, then choose the format you need—all on one page.
+Paste a public media link, preview the detected content, and choose your download format—all on one page. OmniDL handles platform detection and media processing on the backend.
 
-**No platform picker. No account. No database.**
-
-```text
-Paste URL → Analyze → Detect platform & media → Preview → Download
-```
+**No account required. No database. No permanent media storage.**
 
 ## Features
 
