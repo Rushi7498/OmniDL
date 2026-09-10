@@ -1,55 +1,67 @@
-<p align="center">
-  <img src="docs/images/omnidl-banner.jpg" alt="OmniDL — a clean interface for downloading videos, audio, and images from one link" width="100%" />
-</p>
-
 <div align="center">
+  <img src="docs/images/omnidl-banner.jpg" alt="OmniDL interface — paste a media link, preview, and download" width="100%" />
 
-# OmniDL
+  <h1>OmniDL</h1>
+  <h3>Paste. Detect. Download.</h3>
+  <p>One link for your videos, audio, and images.<br />
+  A self-hosted media downloader with automatic platform detection and a focused interface.</p>
 
-**Paste. Detect. Download.**
+  <p>
+    <a href="https://github.com/DzarelDeveloper/OmniDL/stargazers"><img src="https://img.shields.io/github/stars/DzarelDeveloper/OmniDL?style=for-the-badge&amp;color=18181B&amp;labelColor=18181B&amp;logo=github" alt="OmniDL GitHub stars" /></a>
+    <a href="https://github.com/DzarelDeveloper/OmniDL/forks"><img src="https://img.shields.io/github/forks/DzarelDeveloper/OmniDL?style=for-the-badge&amp;color=18181B&amp;labelColor=18181B&amp;logo=github" alt="OmniDL GitHub forks" /></a>
+    <a href="https://github.com/DzarelDeveloper/OmniDL/issues"><img src="https://img.shields.io/github/issues/DzarelDeveloper/OmniDL?style=for-the-badge&amp;color=18181B&amp;labelColor=18181B" alt="OmniDL open issues" /></a>
+  </p>
 
-One link for your videos, audio, and images.<br />
-Automatic platform detection. Original-resolution images. Simple downloads.
-
-<p align="center">
-  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/tiktok.svg" alt="TikTok" height="32" /></a>
-  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/instagram.svg" alt="Instagram" height="32" /></a>
-  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/youtube.svg" alt="YouTube" height="32" /></a>
-  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/pinterest.svg" alt="Pinterest" height="32" /></a>
-  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/facebook.svg" alt="Facebook" height="32" /></a>
-  <a href="#platforms-and-accepted-links"><img src="docs/images/badges/twitter.svg" alt="X / Twitter" height="32" /></a>
-</p>
-
-<p align="center">
-  <a href="#quick-start"><img src="docs/images/badges/get-started.svg" alt="Get started →" height="42" /></a>
-  <a href="#features"><img src="docs/images/badges/features.svg" alt="Features" height="42" /></a>
-  <a href="#architecture"><img src="docs/images/badges/architecture.svg" alt="Architecture" height="42" /></a>
-  <a href="#api-reference"><img src="docs/images/badges/api.svg" alt="API reference" height="42" /></a>
-  <a href="#deploy-the-frontend-on-netlify"><img src="docs/images/badges/deploy.svg" alt="Deploy" height="42" /></a>
-</p>
-
-<sub>Built with React, Vite, Express, and FFmpeg · Created by <a href="https://github.com/DzarelDeveloper">Dzarel Alghifari</a></sub>
-
+  <p>
+    <a href="#quick-start"><img src="docs/images/badges/get-started.svg" alt="Get started →" height="42" /></a>
+    <a href="#features"><img src="docs/images/badges/features.svg" alt="Features" height="42" /></a>
+    <a href="#architecture"><img src="docs/images/badges/architecture.svg" alt="Architecture" height="42" /></a>
+    <a href="#api-reference"><img src="docs/images/badges/api.svg" alt="API reference" height="42" /></a>
+    <a href="#production-deployment"><img src="docs/images/badges/deploy.svg" alt="Deploy" height="42" /></a>
+  </p>
+  <sub>No login · No database · No permanent media storage</sub>
 </div>
 
 ---
 
-Paste a public media link, preview the detected content, and choose your download format—all on one page. OmniDL handles platform detection and media processing on the backend.
+## Overview
 
-**No account required. No database. No permanent media storage.**
+OmniDL brings public media links into one workflow: **paste a URL → analyze → preview → download**. Platform detection happens automatically, while a shared media schema keeps image, video, audio, and carousel controls consistent.
+
+Built for local use and self-hosting. The React frontend connects to an Express backend that handles extraction, source validation, FFmpeg processing, and temporary-file cleanup.
+
+<div align="center">
+  <img src="https://img.shields.io/badge/React-18181B?style=for-the-badge&amp;logo=react&amp;logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-18181B?style=for-the-badge&amp;logo=vite&amp;logoColor=BD8BFF" alt="Vite" />
+  <img src="https://img.shields.io/badge/Node.js-18181B?style=for-the-badge&amp;logo=nodedotjs&amp;logoColor=5FA04E" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express-18181B?style=for-the-badge&amp;logo=express&amp;logoColor=white" alt="Express" />
+  <img src="https://img.shields.io/badge/Python-18181B?style=for-the-badge&amp;logo=python&amp;logoColor=FFD343" alt="Python" />
+  <img src="https://img.shields.io/badge/FFmpeg-18181B?style=for-the-badge&amp;logo=ffmpeg&amp;logoColor=5FA04E" alt="FFmpeg" />
+</div>
 
 ## Features
 
-- **Automatic detection** — one input for TikTok, Instagram, YouTube/Shorts, Pinterest, Facebook/Reels, and X/Twitter links.
-- **Media previews** — thumbnails, titles, creators, and duration when the source provides them.
-- **Video and audio** — available MP4 resolutions plus MP3 or M4A audio extraction.
-- **Image formats** — choose PNG (default), JPG, JPEG, or WebP once beside the carousel download buttons to apply it to every image; conversion preserves source dimensions. Single images keep their own format selector.
-- **Carousel controls** — individual downloads, multiple selection, and Download All as ZIP.
-- **Mixed media** — image and video items share one carousel, with format controls for video items.
-- **Compact interface** — responsive layout, inline results, loading states, and clear feedback.
-- **Temporary processing** — media files are removed after each job; metadata expires in memory.
+| Capability | What you can do |
+| --- | --- |
+| **Automatic detection** | Paste a supported post link without selecting a platform or downloader type. |
+| **Media previews** | View the creator, caption, hashtags, thumbnail, and duration when available. |
+| **Video & audio** | Choose an available MP4 resolution or extract MP3 / M4A audio. |
+| **Image formats** | Save PNG, JPG, JPEG, or WebP at source dimensions. PNG is the default. |
+| **Carousel downloads** | Download one item, select multiple items, or save everything as ZIP. |
+| **Mixed media** | Preview images and videos together, with Video / Audio controls for video items. |
+| **Responsive interface** | Stay on one page with inline results, loading states, and clear feedback. |
+| **Temporary processing** | Remove files after each job and expire analysis metadata in memory. |
 
 ### Platforms and accepted links
+
+<p align="center">
+  <img src="docs/images/badges/tiktok.svg" alt="TikTok" height="32" />
+  <img src="docs/images/badges/instagram.svg" alt="Instagram" height="32" />
+  <img src="docs/images/badges/youtube.svg" alt="YouTube" height="32" />
+  <img src="docs/images/badges/pinterest.svg" alt="Pinterest" height="32" />
+  <img src="docs/images/badges/facebook.svg" alt="Facebook" height="32" />
+  <img src="docs/images/badges/twitter.svg" alt="X / Twitter" height="32" />
+</p>
 
 | Platform | Accepted public links | Media scope |
 | --- | --- | --- |
@@ -78,7 +90,14 @@ OmniDL uses legitimately accessible media sources. It does **not** crop, blur, r
 
 ## Quick start
 
-Run the following commands from the project root. These installation commands target **Debian / Ubuntu**.
+These installation commands target **Debian / Ubuntu**. Install Node.js 22.16+ and npm first, then clone the repository:
+
+```bash
+git clone https://github.com/DzarelDeveloper/OmniDL.git
+cd OmniDL
+```
+
+Run the remaining commands from this directory.
 
 ### 1. Install system requirements
 
@@ -95,7 +114,7 @@ sudo apt-get install ffmpeg python3-venv
 
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -U 'yt-dlp[default]' gallery-dl
+python -m pip install -r backend/requirements.txt
 ```
 
 FFmpeg must include AAC, `libmp3lame`, PNG, MJPEG, and `libwebp` encoders. The YouTube adapter explicitly enables the installed Node runtime for JavaScript challenges.
@@ -145,6 +164,8 @@ Copy [`.env.example`](.env.example) to `.env`. Local environment files are exclu
 | `REQUEST_TIMEOUT_MS` | `120000` | Maximum job duration: two minutes |
 | `SESSION_TTL_MS` | `900000` | Analysis lifetime: fifteen minutes |
 | `MAX_CONCURRENT_JOBS` | `3` | Maximum concurrent API processing jobs |
+| `VITE_API_ORIGIN` | Empty | Public backend origin for a separately hosted frontend; set before building |
+| `FRONTEND_ORIGINS` | Empty | Comma-separated exact frontend origins allowed by backend CORS |
 
 If you change `PORT`, update the API proxy target in [`frontend/vite.config.js`](frontend/vite.config.js) as well.
 
@@ -158,7 +179,7 @@ flowchart TD
     API --> Validation[URL validation and platform detection]
     Validation --> Extractors[Platform adapters]
     Extractors --> Proxy[Public-address egress proxy]
-    Proxy --> Sources[TikTok / Instagram / YouTube]
+    Proxy --> Sources[Supported social platforms]
     Extractors --> Schema[Universal media schema]
     Schema --> Cache[Expiring in-memory metadata]
     Cache -->|Preview and format identifiers| UI
@@ -180,9 +201,9 @@ OmniDL/
 │   │   └── styles.css        # Responsive interface and feedback states
 │   └── vite.config.js       # React setup and development API proxy
 ├── backend/
-│   ├── python/             # Instagram image-preserving adapter and unit tests
+│   ├── python/             # Instagram, TikTok, and X adapters; Python tests
 │   ├── src/
-│   │   ├── extractors/      # TikTok, Instagram, YouTube and shared adapters
+│   │   ├── extractors/      # Six platform adapters and shared extraction tools
 │   │   ├── app.js           # Routes, middleware and request lifecycle
 │   │   ├── server.js        # HTTP server entry point
 │   │   ├── security.js      # URL validation, DNS checks and egress proxy
@@ -193,12 +214,19 @@ OmniDL/
 │   │   ├── temp.js          # Temporary workspace creation and cleanup
 │   │   └── config.js        # Environment settings and application errors
 │   └── test/core.test.js    # Security, API and processing tests
+├── Dockerfile              # Backend container for Render or other hosts
+├── netlify.toml            # Frontend build and routing configuration
 ├── .env.example
 ├── .gitignore
 └── package.json             # npm workspaces and shared commands
 ```
 
+<details>
+<summary><strong>Platform adapter implementation notes</strong></summary>
+
 TikTok video links use a Python yt-dlp adapter that preserves anonymous session cookies per media source, with gallery-dl as fallback. Image posts try gallery-dl first. Session cookies remain in expiring server-side metadata and are stripped on cross-origin redirects; no user cookies or login are imported. Instagram extends yt-dlp’s metadata mapping to retain original images and mixed carousels before video-only result processing, with gallery-dl as a fallback. Its Python adapter uses the same public-address proxy and does not add login or cookies. YouTube uses yt-dlp directly. The Instagram adapter overrides an internal yt-dlp mapping method; run its regression tests after extractor updates. Pinterest uses gallery-dl with direct-MP4 fallback selection, then yt-dlp. Facebook routes photo links to gallery-dl and videos to yt-dlp. X uses a Python adapter to retain photo and video attachments from yt-dlp metadata, with its public syndication endpoint as a fallback for empty results. These adapters do not add login or import user cookies. To extend platform support, add an adapter, register it in `extractors/index.js`, update URL validation, and test its normalized output.
+
+</details>
 
 ## API reference
 
@@ -210,6 +238,9 @@ All request bodies use JSON. Download responses are binary attachments; errors u
 | `POST` | `/api/v1/media/download` | Download selected formats or a ZIP |
 | `GET` | `/api/v1/media/:id/preview/:item` | Proxy a validated thumbnail |
 | `GET` | `/api/v1/health` | Check API liveness |
+
+<details>
+<summary><strong>Request examples, response schema, and error codes</strong></summary>
 
 ### Analyze a link
 
@@ -293,6 +324,8 @@ One selection returns its chosen format. Multiple selections, or `"archive": tru
 
 The health endpoint reports server liveness; it does not verify extractor installation or platform availability.
 
+</details>
+
 ## Security and storage
 
 ### Network controls
@@ -343,6 +376,32 @@ Use a **Node-capable VM or container** with Python, the extractors, and FFmpeg i
 
 The MVP is designed for modest, single-instance use. It has no persistent job queue, resumable downloads, or shared session store across instances.
 
+## Deploy the backend on Render
+
+The root `Dockerfile` installs Node.js, Python, FFmpeg, and pinned extractor versions. It runs the API as a non-root user, listens on `0.0.0.0`, and respects Render's `PORT`. No database or persistent disk is required.
+
+1. In [Render](https://dashboard.render.com/), choose **New → Web Service** and connect `DzarelDeveloper/OmniDL`.
+2. Choose branch `main`, language **Docker**, and instance type **Free**. Leave **Root Directory** empty and use `./Dockerfile` as the Dockerfile path. Leave the Docker Command override empty.
+3. Add `FRONTEND_ORIGINS=https://your-site.netlify.app` in **Environment**, replacing the example with your exact frontend origin (no trailing slash).
+4. Set the health check path to `/api/v1/health`, then deploy.
+5. Open `https://your-service.onrender.com/api/v1/health`. A running API returns `{"status":"ok"}`. This checks liveness, not platform extraction.
+6. Configure Netlify as described below, then test analysis and a small download from the deployed frontend.
+
+The container defaults to one processing job and a 50 MiB media limit to reduce memory pressure on small instances. Override `MAX_CONCURRENT_JOBS` and `MAX_MEDIA_MB` only when your hosting resources allow it. Update `backend/requirements.txt` and run the Python regression tests when upgrading extractors.
+
+[Render Free](https://render.com/docs/free) sleeps after 15 idle minutes and can take about a minute to wake. Bandwidth and outbound traffic limits apply, making this suitable for light testing rather than a busy public downloader. Restarting clears analysis sessions; analyze the link again if a download handle expires. Social platforms may also restrict datacenter IPs, so successful local extraction does not guarantee hosted extraction.
+
+## Deploy the frontend on Netlify
+
+Connect `DzarelDeveloper/OmniDL` to Netlify. The included `netlify.toml` uses the repository root, `npm run build`, and `frontend/dist`.
+
+1. Deploy the backend on a Node-capable server with Python, yt-dlp, gallery-dl, and FFmpeg. Netlify hosts the frontend only.
+2. In Netlify, set `VITE_API_ORIGIN` to the backend HTTPS origin, such as `https://api.example.com` (no `/api` suffix), then deploy. This is public build-time configuration, never a secret.
+3. On the backend, set `FRONTEND_ORIGINS` to the exact Netlify site origin, such as `https://your-site.netlify.app`. Separate multiple allowed origins with commas.
+4. Set backend `HOST=0.0.0.0` if required by your hosting provider and keep executable paths configured.
+
+Requests and thumbnails go directly to the backend. This avoids Netlify proxy timeouts for long-running media jobs. Without a deployed backend and these environment values, the Netlify UI will load but analysis/downloads will not work. Local development continues to use the Vite API proxy when `VITE_API_ORIGIN` is empty.
+
 ## Testing
 
 With FFmpeg installed and local socket access available:
@@ -356,9 +415,7 @@ npm run build
 
 The automated suite covers domain and IP boundaries, blocked proxy destinations, mixed-carousel normalization, adaptive audio/video pairing, temporary-file cleanup, real FFmpeg conversion, ZIP output, and API input validation.
 
-Live Pinterest video and Facebook Reel downloads have been verified through the API. An X post containing an image and video was also verified, including both previews and a combined ZIP download. Other posts may still be inaccessible or require platform access.
-
-Initial live verification also confirmed a YouTube download containing H.264 video and AAC audio in MP4, plus a separate MP3 output. Automated tests use synthetic metadata and locally generated audio; they do not guarantee ongoing platform availability.
+Automated tests use synthetic metadata and locally generated media. They do not guarantee ongoing access to social platforms; verify authorized public posts in your own hosting environment.
 
 ## Troubleshooting
 
@@ -386,7 +443,7 @@ python -m pip install -U 'yt-dlp[default]' gallery-dl
 - Only direct HTTP(S) media sources are processed. Manifest-only HLS/DASH sources are excluded; ongoing live streams, profile feeds, and playlists are outside the supported workflow.
 - Titles, creators, durations, resolutions, or thumbnails may be missing from source metadata.
 - Carousel support depends on source availability. If normalization finds an unsupported item, the post is rejected rather than silently dropping that item. Video-only multi-item posts also use the `mixed` collection type.
-- TikTok MP4 was verified against a public video; other posts remain dependent on platform availability. Instagram image-carousels were verified; Instagram video and mixed posts need additional live checks. Test media you are authorized to download before making the app publicly available.
+- Platform and media-type coverage varies by post. Test media you are authorized to download before making the app publicly available.
 
 ## Responsible use
 
@@ -396,28 +453,20 @@ Download only media you own or have permission to download. Respect creators' ri
 
 [React](https://react.dev/) · [Vite](https://vite.dev/) · [Express](https://expressjs.com/) · [FFmpeg](https://ffmpeg.org/) · [yt-dlp](https://github.com/yt-dlp/yt-dlp) · [gallery-dl](https://github.com/mikf/gallery-dl)
 
-## Deploy the backend on Render
+## Contributing
 
-The root `Dockerfile` installs Node.js, Python, FFmpeg, and pinned extractor versions. It runs the API as a non-root user, listens on `0.0.0.0`, and respects Render's `PORT`. No database or persistent disk is required.
+Bug reports, documentation improvements, and platform fixes are welcome. Open an [issue](https://github.com/DzarelDeveloper/OmniDL/issues) with reproduction steps and relevant error messages, or submit a pull request describing the change and how you tested it. Remove credentials and private media links from reports.
 
-1. In [Render](https://dashboard.render.com/), choose **New → Web Service** and connect `DzarelDeveloper/OmniDL`.
-2. Choose branch `main`, language **Docker**, and instance type **Free**. Leave **Root Directory** empty and use `./Dockerfile` as the Dockerfile path. Leave the Docker Command override empty.
-3. Add `FRONTEND_ORIGINS=https://your-site.netlify.app` in **Environment**, replacing the example with your exact frontend origin (no trailing slash).
-4. Set the health check path to `/api/v1/health`, then deploy.
-5. Open `https://your-service.onrender.com/api/v1/health`. A running API returns `{"status":"ok"}`. This checks liveness, not platform extraction.
-6. Configure Netlify as described below, then test analysis and a small download from the deployed frontend.
+For extractor changes, run the backend and Python tests before submitting. Keep platform-specific logic in the backend and preserve the universal media schema.
 
-The container defaults to one processing job and a 50 MiB media limit to reduce memory pressure on small instances. Override `MAX_CONCURRENT_JOBS` and `MAX_MEDIA_MB` only when your hosting resources allow it. Update `backend/requirements.txt` and run the Python regression tests when upgrading extractors.
+---
 
-[Render Free](https://render.com/docs/free) sleeps after 15 idle minutes and can take about a minute to wake. Bandwidth and outbound traffic limits apply, making this suitable for light testing rather than a busy public downloader. Restarting clears analysis sessions; analyze the link again if a download handle expires. Social platforms may also restrict datacenter IPs, so successful local extraction does not guarantee hosted extraction.
-
-## Deploy the frontend on Netlify
-
-Connect `DzarelDeveloper/OmniDL` to Netlify. The included `netlify.toml` uses the repository root, `npm run build`, and `frontend/dist`.
-
-1. Deploy the backend on a Node-capable server with Python, yt-dlp, gallery-dl, and FFmpeg. Netlify hosts the frontend only.
-2. In Netlify, set `VITE_API_ORIGIN` to the backend HTTPS origin, such as `https://api.example.com` (no `/api` suffix), then deploy. This is public build-time configuration, never a secret.
-3. On the backend, set `FRONTEND_ORIGINS` to the exact Netlify site origin, such as `https://your-site.netlify.app`. Separate multiple allowed origins with commas.
-4. Set backend `HOST=0.0.0.0` if required by your hosting provider and keep executable paths configured.
-
-Requests and thumbnails go directly to the backend. This avoids Netlify proxy timeouts for long-running media jobs. Without a deployed backend and these environment values, the Netlify UI will load but analysis/downloads will not work. Local development continues to use the Vite API proxy when `VITE_API_ORIGIN` is empty.
+<div align="center">
+  <h3>Built by Dzarel Alghifari</h3>
+  <p>Maintained as <a href="https://github.com/DzarelDeveloper"><strong>@DzarelDeveloper</strong></a>.</p>
+  <p>
+    <a href="https://github.com/DzarelDeveloper"><img src="https://img.shields.io/badge/GitHub-18181B?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="DzarelDeveloper on GitHub" /></a>
+    <a href="https://github.com/DzarelDeveloper/OmniDL/issues/new"><img src="https://img.shields.io/badge/Report_a_bug-18181B?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Report an OmniDL bug" /></a>
+  </p>
+  <sub>OmniDL · Paste. Detect. Download.</sub>
+</div>
