@@ -13,6 +13,8 @@ A focused, self-hosted downloader for TikTok, Instagram, YouTube, Pinterest, Fac
 
 </div>
 
+![OmniDL web interface](docs/images/omnidl-banner.jpg)
+
 ---
 
 OmniDL turns a media URL into a preview and a set of download options. Paste a link, let the backend detect the platform and media type, then choose the format you need—all on one page.
@@ -22,8 +24,6 @@ OmniDL turns a media URL into a preview and a set of download options. Paste a l
 ```text
 Paste URL → Analyze → Detect platform & media → Preview → Download
 ```
-
-> **MVP status:** The production build and seven automated tests passed during initial validation. Live YouTube analysis and MP4/MP3 downloads were also verified. Instagram analysis, image preview, and a six-image ZIP download were subsequently verified against a live post. TikTok MP4 download was also verified against a user-supplied public video.
 
 ## Features
 
