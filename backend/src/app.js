@@ -21,6 +21,8 @@ import { createSlots } from "./slots.js";
 export function createApp() {
   const app = express();
   let active = 0;
+  let activeYouTube = 0;
+  const youtubeJobs = 2;
   const previewSlot = createSlots(4);
   app.disable("x-powered-by");
   // Railway terminates public traffic at its trusted reverse proxy. Trust only
@@ -48,17 +50,47 @@ export function createApp() {
     }),
   );
   app.get("/api/v1/health", (_req, res) => res.json({ status: "ok" }));
+  const isYouTubeJob = (req) => {
+    const url = req.body?.url;
+    if (typeof url === "string") {
+      try {
+        const host = new URL(url).hostname.toLowerCase();
+        if (
+          host === "youtu.be" ||
+          host === "youtube.com" ||
+          host.endsWith(".youtube.com") ||
+          host === "youtube-nocookie.com" ||
+          host.endsWith(".youtube-nocookie.com")
+        )
+          return true;
+      } catch {}
+    }
+    const mediaId = req.body?.mediaId;
+    if (typeof mediaId === "string") {
+      try {
+        return get(mediaId).platform === "YouTube";
+      } catch {}
+    }
+    return false;
+  };
   const job =
     (fn, preview = false) =>
     async (req, res, next) => {
-      if (!preview && active >= config.jobs)
+      const youtube = !preview && isYouTubeJob(req);
+      if (
+        !preview &&
+        (youtube ? activeYouTube >= youtubeJobs : active >= config.jobs)
+      )
         return next(
           new AppError(
             "All processing slots are busy. Try again shortly.",
             503,
           ),
         );
-      if (!preview) active++;
+      if (!preview) {
+        if (youtube) activeYouTube++;
+        else active++;
+      }
       let release;
       const c = new AbortController(),
         timer = setTimeout(() => c.abort(), config.timeout);
@@ -78,7 +110,10 @@ export function createApp() {
       } finally {
         clearTimeout(timer);
         res.off("close", close);
-        if (!preview) active--;
+        if (!preview) {
+          if (youtube) activeYouTube--;
+          else active--;
+        }
         release?.();
       }
     };
