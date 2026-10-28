@@ -23,6 +23,9 @@ export function createApp() {
   let active = 0;
   const previewSlot = createSlots(4);
   app.disable("x-powered-by");
+  // Railway terminates public traffic at its trusted reverse proxy. Trust only
+  // the first proxy hop so express-rate-limit can determine the client address.
+  app.set("trust proxy", 1);
   app.use(helmet());
   app.use(
     "/api",
